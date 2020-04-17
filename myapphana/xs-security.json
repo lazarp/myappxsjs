@@ -1,0 +1,18 @@
+{
+    "xsappname": "myapphana",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "uaa.user",
+            "description": "Token Exchange"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "TOKEN_EXCHANGE",
+            "scope-references": [
+                "uaa.user"
+            ]
+        }
+    ]
+}

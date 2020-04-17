@@ -1,0 +1,54 @@
+ID: myapphana
+_schema-version: "3.1"
+version: 0.0.1
+
+modules:
+  - name: myapphana-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myapphana-hdi
+
+  - name: myapphana-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 128M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: myapphana-uaa
+      - name: myapphana-hdi
+
+  - name: myapphana
+    type: html5
+    path: app
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myapphana-uaa
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+          forwardAuthToken: true
+
+resources:
+  - name: myapphana-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: myapphana-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}

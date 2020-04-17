@@ -1,0 +1,12 @@
+{
+    "dependencies": {
+        "express": "latest",
+        "body-parser": "latest",
+        "@sap/xsenv": "latest",
+        "@sap/xssec": "latest",
+        "passport": "latest"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}

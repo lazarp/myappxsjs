@@ -1,0 +1,7 @@
+applications:
+  - name: myappdest
+    random-route: true
+    memory: 128M
+    disk_quota: 128M
+    buildpacks:
+      - nodejs_buildpack
