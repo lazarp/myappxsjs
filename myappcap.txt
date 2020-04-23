@@ -1,0 +1,75 @@
+myappcap
+--------
+
+
+db/schema.cds:
+
+namespace myappcap.db;
+
+entity Sales {
+    key id      : Integer;
+        region  : String(100);
+        country : String(100);
+        amount  : Integer;
+};
+
+
+db/data/myappcap.db-Sales.csv:
+
+id,region,country,amount
+1,Europe,France,123
+2,Europe,UK,323
+3,Europe,Germany,413
+4,Europe,Italy,143
+5,Europe,Finland,521
+6,Europe,Ireland,253
+7,Europe,Spain,273
+8,Europe,Portugal,190
+9,North America,USA,763
+10,North America,Mexico,465
+11,North America,Canada,349
+12,Asia,Japan,732
+13,Asia,Malaysia,233
+14,Asia,China,821
+15,Asia,India,692
+
+
+srv/cat-service.cds:
+
+using {myappcap.db as myappcap} from '../db/schema';
+
+service CatalogService @(path : '/srv') {
+
+    entity Sales as
+        select from myappcap.Sales {*};
+
+};
+
+
+srv/cat-service.js:
+
+module.exports = (srv) => {
+
+    srv.after('READ', 'Sales', (each) => {
+        if (each.country == 'France') each.amount = 0
+    })
+
+};
+
+
+/srv/cat-service.cds:
+
+annotate CatalogService.Sales with @UI : {
+    LineItem : [
+        {Value : id,      Label : 'ID'},
+        {Value : region,  Label : 'Region'},
+        {Value : country, Label : 'Country'},
+        {Value : amount,  Label : 'Amount'}
+    ]
+};
+
+
+/query.http:
+
+# top 3
+GET http://localhost:4004/srv/Sales?$top=3&$select=country,amount&$orderby=amount%20desc
