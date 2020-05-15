@@ -1,0 +1,8 @@
+{
+	"role": {
+		"name": "myapphana.db::analytics",
+		"schema_privileges": [{
+			"privileges": ["SELECT"]
+		}]
+	}
+}
