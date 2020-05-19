@@ -4,7 +4,7 @@
         "body-parser": "latest",
         "@sap/xsenv": "latest",
         "@sap/hdbext": "latest",
-        "@sap/xssec": "latest",
+        "@sap/xssec": "^2",
         "passport": "latest"
     },
     "scripts": {

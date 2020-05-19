@@ -1,0 +1,39 @@
+myapphaa
+--------
+
+
+npm install -g generator-saphanaacademy-haa
+
+---
+
+/sap/bc/ina/service/v2/HeartBeat
+/sap/bc/ina/service/v2/GetServerInfo
+
+---
+
+USE_NAMED_USER: true
+
+---
+
+select * from PSES where purpose = 'JWT';
+select * from CERTIFICATES;
+select * from PSE_CERTIFICATES;
+select * from JWT_PROVIDERS;
+
+create certificate from '<certificate>';
+
+call system.create_jwt_provider('JWTPROVIDER1', '<issuer>', 'user_name', true);
+
+create pse PSE1;
+alter pse PSE1 add certificate <certificate_id>;
+call system.set_pse_purpose('PSE1', 'JWT', ARRAY('JWTPROVIDER1'));
+
+---
+
+create user MYUSER password <password> no FORCE_FIRST_PASSWORD_CHANGE set USERGROUP DEFAULT;
+grant execute on SYS.EXECUTE_MDS_DEV to MYUSER;
+alter user MYUSER ENABLE JWT;
+alter user MYUSER add identity '<email>' for JWT provider JWTPROVIDER1;
+grant "<hdi-schema>::external_privileges_role" to MYUSER;
+--grant "<hdi-schema>::access_role" to MYUSER;
+grant "<hdi-schema>"."<hdbrole>" to MYUSER;
