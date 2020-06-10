@@ -1,0 +1,3 @@
+service namespace "myappxsjs.db" {
+  "myappxsjs.db::students" as "students";
+}

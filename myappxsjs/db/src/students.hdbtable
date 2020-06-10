@@ -1,0 +1,10 @@
+COLUMN TABLE "myappxsjs.db::students" 
+    (
+        "id" INTEGER, 
+        "name" VARCHAR(100),
+        "site" VARCHAR(100),
+        "gender" VARCHAR(100),
+        "age" VARCHAR(100),
+        "score" INTEGER,
+        PRIMARY KEY ("id") 
+    )
