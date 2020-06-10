@@ -18,8 +18,8 @@
   ],
   "role-collections": [
     {
-      "name": "XSAPPXSJS_Viewer",
-      "description": "XSAPPXSJS Viewer",
+      "name": "MYAPPXSJS_Viewer",
+      "description": "MYAPPXSJS Viewer",
       "role-template-references": [
         "$XSAPPNAME.Viewer"
       ]
