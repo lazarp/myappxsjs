@@ -1,0 +1,8 @@
+_schema-version: "3.1"
+ID: myappsyn.config
+extends: myappsyn
+
+resources:
+  - name: sales-grantor
+    parameters:
+      service-name: myapphana-hdi2

@@ -1,0 +1,14 @@
+{
+    "logical-sales-grantor": {
+        "object_owner": { 
+            "container_roles": [
+                "myapphana.db::external_access_g#"
+            ]
+        },
+        "application_user": {
+            "container_roles": [
+                "myapphana.db::external_access"
+            ]
+        }
+    }
+}

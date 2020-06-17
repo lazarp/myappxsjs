@@ -1,0 +1,8 @@
+{
+  "myappsyn.db::sales": {
+    "target": {
+      "object": "myapphana.db::sales",
+      "schema.configure": "logical-sales-grantor/schema"
+    }
+  }
+}

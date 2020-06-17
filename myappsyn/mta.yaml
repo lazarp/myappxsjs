@@ -1,0 +1,67 @@
+ID: myappsyn
+_schema-version: "3.1"
+version: 0.0.1
+
+modules:
+  - name: myappsyn-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myappsyn-hdi
+        properties:
+          TARGET_CONTAINER: ~{hdi-container-name}
+      - name: sales-grantor
+        group: SERVICE_REPLACEMENTS
+        properties: 
+          key: logical-sales-grantor
+          service: ~{sales-grantor-service}
+
+  - name: myappsyn-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 128M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: myappsyn-uaa
+      - name: myappsyn-hdi
+
+  - name: myappsyn
+    type: html5
+    path: app
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myappsyn-uaa
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+          forwardAuthToken: true
+
+resources:
+  - name: myappsyn-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: myappsyn-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
+  - name: sales-grantor
+    properties:
+      sales-grantor-service: ${service-name}
+    parameters:
+      service-name: myapphana-hdi
+    type: org.cloudfoundry.existing-service

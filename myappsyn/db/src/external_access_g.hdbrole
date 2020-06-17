@@ -1,0 +1,12 @@
+{
+  "role": {
+    "name": "myapphana.db::external_access_g#",
+    "object_privileges": [
+      {
+        "name": "myapphana.db::sales",
+        "type": "TABLE",
+        "privileges_with_grant_option": [ "SELECT" ]
+      }
+    ]
+  }
+}
