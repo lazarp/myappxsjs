@@ -1,0 +1,60 @@
+https://letsencrypt.org
+https://www.identrust.com
+https://certbot.eff.org
+
+certbot --version
+
+******************************************
+global replace:
+<cforg>
+<apps.acme.com>
+<custom-domain-instance>
+<custom-domain-key>
+<C=US, ST=California, L=Palo Alto, O=ACME>
+<admin@acme.com>
+******************************************
+
+cf create-service INFRA custom_domains <custom-domain-instance>
+cf create-domain <cforg> <apps.acme.com>
+cf domains
+cf custom-domain-create-key <custom-domain-key> "CN=<apps.acme.com>, <C=US, ST=California, L=Palo Alto, O=ACME>" "*.<apps.acme.com>"
+cf custom-domain-get-csr <custom-domain-key> csr.pem
+
+certbot certonly --manual --preferred-challenges dns --server "https://acme-v02.api.letsencrypt.org/directory" --domain "*.<apps.acme.com>" --email <admin@acme.com> --csr csr.pem --no-bootstrap --agree-tos
+
+cf custom-domain-upload-certificate-chain <custom-domain-key> 2upload.pem
+cf custom-domain-show-certificates <custom-domain-key>
+cf cdl
+cf custom-domain-activate <custom-domain-key> "*.<apps.acme.com>"
+cf cdl
+
+myappnode:
+manifest.yml:
+applications:
+  - name: myappnode
+    routes:
+      - route: myappnode.<apps.acme.com>
+
+myappuaa:
+xs-security.json:
+    ,
+    "oauth2-configuration": {
+        "redirect-uris": [
+            "http*://*.<apps.acme.com>/**"
+        ]
+    }
+
+mta.yaml > parameters:
+      domain: <apps.acme.com>
+
+cf undeploy myappuaa --delete-services -f
+cf delete myappnode -f
+cf routes
+cf delete-orphaned-routes
+
+cf cdl
+cf custom-domain-deactivate "*.<apps.acme.com>"
+cf domains
+cf delete-domain <apps.acme.com>
+cf custom-domain-delete-key <custom-domain-key>
+cf delete-service <custom-domain-instance>
