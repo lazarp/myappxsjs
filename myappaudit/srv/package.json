@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "express": "latest",
+        "axios": "latest",
+        "body-parser": "latest",
+        "@sap/xsenv": "latest",
+        "@sap/audit-logging": "latest",
+        "@sap/xssec": "^2",
+        "passport": "latest"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}

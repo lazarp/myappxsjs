@@ -1,0 +1,31 @@
+mta.yaml
+--------
+
+requires (app/srv):
+     - name: myappuaa-logs
+
+resources:
+  - name: myappuaa-logs
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: application-logs
+
+
+package.json 
+------------
+
+        "cf-nodejs-logging-support": "^6",
+
+
+server.js 
+---------
+
+const log = require('cf-nodejs-logging-support');
+log.setLoggingLevel('info');
+log.registerCustomFields(["givenName"]);
+app.use(log.logNetwork);
+
+    req.logger.info('Log message with custom field!', {"givenName": req.authInfo.userInfo.givenName});
+
+    log.info('Server is listening on port %d', port);
