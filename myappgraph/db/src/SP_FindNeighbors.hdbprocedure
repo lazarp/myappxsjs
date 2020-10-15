@@ -1,0 +1,13 @@
+PROCEDURE "myappgraph.db::SP_FindNeighbors" (
+        IN airportCode NVARCHAR(3),
+        IN direction NVARCHAR(8), -- OUTGOING INCOMING ANY
+        IN minDepth INTEGER,
+        IN maxDepth INTEGER,
+        OUT neighbors "myappgraph.db::TT_Neighbors"
+    )
+    LANGUAGE GRAPH READS SQL DATA AS
+    BEGIN
+        Graph g = Graph("myappgraph.db::GW_Flights");
+        MULTISET<Vertex> mvNeighbors = NEIGHBORS(:g, [ VERTEX(:g, :airportCode) ], :minDepth, :maxDepth, :direction);
+        neighbors = SELECT :v."airportCode" FOREACH v IN :mvNeighbors;
+    END

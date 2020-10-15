@@ -1,0 +1,10 @@
+COLUMN TABLE "myappgraph.db::Airports" (
+    "airportCode" NVARCHAR(3) NOT NULL,
+    "airportName" NVARCHAR(100),
+    "city" NVARCHAR(100),
+    "country" NVARCHAR(100),
+    "location" ST_GEOMETRY (4326),
+    "altitude" INTEGER,
+    "offsetUTC" INTEGER,
+    "passengers" INTEGER,
+    PRIMARY KEY ("airportCode"))

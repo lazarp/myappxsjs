@@ -1,0 +1,33 @@
+PROCEDURE "myappgraph.db::SP_AirportDestinations" (
+        IN airportCode NVARCHAR(3),
+        OUT direct INTEGER,
+        OUT oneTransfer INTEGER,
+        OUT twoTransfers INTEGER
+    )
+    LANGUAGE GRAPH READS SQL DATA AS
+    BEGIN
+        Graph g = Graph("myappgraph.db::GW_Flights");
+        direct = 0;
+        oneTransfer = 0;
+        twoTransfers = 0;
+        TRAVERSE BFS :g 
+            FROM { 
+                Vertex(:g, :airportCode)
+            } 
+            ON VISIT VERTEX (Vertex v, BigInt lvl) {
+                IF (:lvl == 1L) {
+                    direct = :direct + 1;
+                    }
+                ELSE {
+                    IF (:lvl == 2L) {
+                        oneTransfer = :oneTransfer + 1;
+                    }
+                    ELSE {
+                        IF (:lvl == 3L) {
+                            twoTransfers = :twoTransfers + 1;
+                        }
+                    }
+                }
+            }
+        ;
+    END

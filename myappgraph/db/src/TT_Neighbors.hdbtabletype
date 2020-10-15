@@ -1,0 +1,3 @@
+TYPE "myappgraph.db::TT_Neighbors" AS TABLE (
+    "airportCode" NVARCHAR(3)
+    )

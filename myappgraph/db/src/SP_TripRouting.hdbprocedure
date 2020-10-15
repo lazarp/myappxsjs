@@ -1,0 +1,23 @@
+PROCEDURE "myappgraph.db::SP_TripRouting" (
+        IN airportCodeOrigin NVARCHAR(3),
+        IN airportCodeDestination NVARCHAR(3),
+        OUT totalSegments BIGINT,
+        OUT totalDistance INTEGER,
+        OUT totalDuration INTEGER,
+        OUT routing "myappgraph.db::TT_TripRouting"
+    )
+    LANGUAGE GRAPH READS SQL DATA AS
+    BEGIN
+        Graph g = Graph("myappgraph.db::GW_Flights");
+        Vertex sourceVertex = Vertex(:g, :airportCodeOrigin);
+        Vertex targetVertex = Vertex(:g, :airportCodeDestination);
+        WeightedPath<BigInt> p = SHORTEST_PATH(:g, :sourceVertex, :targetVertex);
+        totalSegments = Length(:p);
+        totalDistance = 0;
+        totalDuration = 0;
+        FOREACH e IN Edges(:p) {
+            totalDistance = :totalDistance + :e."distance";
+            totalDuration = :totalDuration + :e."duration";
+        }
+        routing = SELECT :segment, :e."airportCodeOrigin",  :e."airportCodeDestination", :e."airlineName", :e."distance", :e."duration" FOREACH e in Edges(:p) WITH ORDINALITY AS segment;
+    END

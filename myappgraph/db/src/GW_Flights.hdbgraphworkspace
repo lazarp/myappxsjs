@@ -1,0 +1,8 @@
+GRAPH WORKSPACE "myappgraph.db::GW_Flights"
+    EDGE TABLE "myappgraph.db::Routes"
+        SOURCE COLUMN "airportCodeOrigin"
+        TARGET COLUMN "airportCodeDestination"
+        KEY COLUMN "routeId"
+    VERTEX TABLE "myappgraph.db::Airports"
+        KEY COLUMN "airportCode"
+    ;

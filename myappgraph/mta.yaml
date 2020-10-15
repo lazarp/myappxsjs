@@ -1,0 +1,54 @@
+ID: myappgraph
+_schema-version: "3.1"
+version: 0.0.1
+
+modules:
+  - name: myappgraph-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myappgraph-hdi
+
+  - name: myappgraph-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 128M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: myappgraph-uaa
+      - name: myappgraph-hdi
+
+  - name: myappgraph
+    type: html5
+    path: app
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: myappgraph-uaa
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+          forwardAuthToken: true
+
+resources:
+  - name: myappgraph-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: myappgraph-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}

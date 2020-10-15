@@ -1,0 +1,8 @@
+TYPE "myappgraph.db::TT_TripRouting" AS TABLE (
+    "segment" BIGINT,
+    "airportCodeOrigin" NVARCHAR(3),
+    "airportCodeDestination" NVARCHAR(3),
+    "airlineName" NVARCHAR(100),
+    "distance" INTEGER,
+    "duration" INTEGER
+    )

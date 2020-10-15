@@ -1,0 +1,44 @@
+PROCEDURE "myappgraph.db::SP_WeightedTripRouting" (
+        IN weight VARCHAR(10),
+        IN airportCodeOrigin NVARCHAR(3),
+        IN airportCodeDestination NVARCHAR(3),
+        OUT totalSegments BIGINT,
+        OUT totalDistance INTEGER,
+        OUT totalDuration INTEGER,
+        OUT routing "myappgraph.db::TT_TripRouting"
+    )
+    LANGUAGE GRAPH READS SQL DATA AS
+    BEGIN
+        Graph g = Graph("myappgraph.db::GW_Flights");
+        Vertex sourceVertex = Vertex(:g, :airportCodeOrigin);
+        Vertex targetVertex = Vertex(:g, :airportCodeDestination);
+        totalDistance = 0;
+        totalDuration = 0;
+        IF (:weight == 'distance') {
+            WeightedPath<Int> p = SHORTEST_PATH(:g, :sourceVertex, :targetVertex, (Edge e) => Int {return :e."distance";});
+            totalSegments = Length(:p);
+            totalDistance = Weight(:p);
+            FOREACH e IN Edges(:p) {
+                totalDuration = :totalDuration + :e."duration";
+            }	
+            routing = SELECT :segment, :e."airportCodeOrigin",  :e."airportCodeDestination", :e."airlineName", :e."distance", :e."duration" FOREACH e in Edges(:p) WITH ORDINALITY AS segment;
+        } ELSE {
+            IF (:weight == 'duration') {
+                WeightedPath<Int> p = SHORTEST_PATH(:g, :sourceVertex, :targetVertex, (Edge e) => Int {return :e."duration";});
+                totalSegments = Length(:p);
+                totalDuration = Weight(:p);
+                FOREACH e IN Edges(:p) {
+                    totalDistance = :totalDistance + :e."distance";
+                }
+                routing = SELECT :segment, :e."airportCodeOrigin",  :e."airportCodeDestination", :e."airlineName", :e."distance", :e."duration" FOREACH e in Edges(:p) WITH ORDINALITY AS segment;
+            } ELSE {
+                WeightedPath<BigInt> p = SHORTEST_PATH(:g, :sourceVertex, :targetVertex);
+                totalSegments = Length(:p);
+                FOREACH e IN Edges(:p) {
+                    totalDistance = :totalDistance + :e."distance";
+                    totalDuration = :totalDuration + :e."duration";
+                }
+                routing = SELECT :segment, :e."airportCodeOrigin",  :e."airportCodeDestination", :e."airlineName", :e."distance", :e."duration" FOREACH e in Edges(:p) WITH ORDINALITY AS segment;
+            }
+        }
+    END

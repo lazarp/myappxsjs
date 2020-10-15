@@ -1,0 +1,17 @@
+airportCode,airportName,city,country,location,altitude,offsetUTC,passengers
+AMS,Amsterdam Airport Schiphol,Amsterdam,Netherlands,POINT(4.76388979 52.30860138),-11,1,64
+ATL,Hartsfield Jackson Atlanta International Airport,Atlanta,United States,POINT(-84.42810059 33.63669968),1026,-5,104
+CDG,Charles de Gaulle International Airport,Paris,France,POINT(2.549999952 49.01279831),392,1,66
+DFW,Dallas Fort Worth International Airport,Dallas-Fort Worth,United States,POINT(-97.03800201 32.89680099),607,-6,66
+DXB,Dubai International Airport,Dubai,United Arab Emirates,POINT(55.36439896 25.25279999),62,4,84
+FRA,Frankfurt am Main International Airport,Frankfurt,Germany,POINT(8.5705556 50.0333333),364,1,61
+HND,Tokyo Haneda International Airport,Tokyo,Japan,POINT(139.779999 35.552299),35,9,80
+JFK,John F Kennedy International Airport,New York,United States,POINT(-73.77890015 40.63980103),13,-5,58
+LAX,Los Angeles International Airport,Los Angeles,United States,POINT(-118.4079971 33.94250107),125,-8,81
+LHR,London Heathrow Airport,London,United Kingdom,POINT(-0.461941 51.4706),83,0,75
+NTE,Nantes Atlantique Airport,Nantes,France,POINT(-1.610730052 47.15319824),90,1,5
+ORD,Chicago O Hare International Airport,Chicago,United States,POINT(-87.90480042 41.97859955),672,-6,78
+PDX,Portland International Airport,Portland,United States,POINT(-122.5979996 45.58869934),31,-8,17
+PVG,Shanghai Pudong International Airport,Shanghai,China,POINT(121.8050003 31.14340019),13,8,66
+SFO,San Francisco International Airport,San Francisco,United States,POINT(-122.375 37.6189994812011),13,-8,45
+YVR,Vancouver International Airport,Vancouver,Canada,POINT(-123.183998108 49.193901062),14,-8,22

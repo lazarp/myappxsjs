@@ -1,0 +1,12 @@
+PROCEDURE "myappgraph.db::SP_TripPossible" (
+        IN airportCodeOrigin NVARCHAR(3),
+        IN airportCodeDestination NVARCHAR(3),
+        OUT isPossible BOOLEAN
+    )
+    LANGUAGE GRAPH READS SQL DATA AS
+    BEGIN
+        Graph g = Graph("myappgraph.db::GW_Flights");
+        Vertex sourceVertex = Vertex(:g, :airportCodeOrigin);
+        Vertex targetVertex = Vertex(:g, :airportCodeDestination);
+        isPossible = IS_REACHABLE(:g, :sourceVertex, :targetVertex);
+    END

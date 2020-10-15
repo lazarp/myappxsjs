@@ -1,0 +1,163 @@
+airlineCode,airlineName,allianceName,airportCodeOrigin,airportCodeDestination,distance,duration
+AF,Air France,SkyTeam,ATL,CDG,4394,9
+AF,Air France,SkyTeam,CDG,ATL,4394,10
+AF,Air France,SkyTeam,CDG,DXB,3259,7
+AF,Air France,SkyTeam,CDG,FRA,280,1
+AF,Air France,SkyTeam,CDG,HND,6046,14
+AF,Air France,SkyTeam,CDG,JFK,3635,8
+AF,Air France,SkyTeam,CDG,LAX,5669,13
+AF,Air France,SkyTeam,CDG,LHR,216,1
+AF,Air France,SkyTeam,CDG,NTE,231,1
+AF,Air France,SkyTeam,CDG,ORD,4152,10
+AF,Air France,SkyTeam,CDG,PVG,5771,12
+AF,Air France,SkyTeam,CDG,SFO,5583,12
+AF,Air France,SkyTeam,DXB,CDG,3259,8
+AF,Air France,SkyTeam,FRA,CDG,280,2
+AF,Air France,SkyTeam,HND,CDG,6046,13
+AF,Air France,SkyTeam,JFK,CDG,3635,9
+AF,Air France,SkyTeam,LAX,CDG,5669,13
+AF,Air France,SkyTeam,LHR,CDG,216,2
+AF,Air France,SkyTeam,NTE,CDG,231,1
+AF,Air France,SkyTeam,ORD,CDG,4152,10
+AF,Air France,SkyTeam,PVG,CDG,5771,13
+AF,Air France,SkyTeam,SFO,CDG,5583,12
+DL,Delta Air Lines,SkyTeam,AMS,ATL,4401,10
+DL,Delta Air Lines,SkyTeam,AMS,JFK,3643,9
+DL,Delta Air Lines,SkyTeam,AMS,PDX,5004,12
+DL,Delta Air Lines,SkyTeam,ATL,AMS,4401,9
+DL,Delta Air Lines,SkyTeam,ATL,CDG,4394,9
+DL,Delta Air Lines,SkyTeam,ATL,DFW,731,2
+DL,Delta Air Lines,SkyTeam,ATL,DXB,7599,17
+DL,Delta Air Lines,SkyTeam,ATL,FRA,4615,10
+DL,Delta Air Lines,SkyTeam,ATL,JFK,760,3
+DL,Delta Air Lines,SkyTeam,ATL,LAX,1946,4
+DL,Delta Air Lines,SkyTeam,ATL,LHR,4211,9
+DL,Delta Air Lines,SkyTeam,ATL,ORD,606,3
+DL,Delta Air Lines,SkyTeam,ATL,PDX,2172,6
+DL,Delta Air Lines,SkyTeam,ATL,SFO,2139,5
+DL,Delta Air Lines,SkyTeam,CDG,ATL,4394,10
+DL,Delta Air Lines,SkyTeam,CDG,JFK,3635,8
+DL,Delta Air Lines,SkyTeam,CDG,LAX,5669,13
+DL,Delta Air Lines,SkyTeam,DFW,ATL,731,2
+DL,Delta Air Lines,SkyTeam,DXB,ATL,7599,17
+DL,Delta Air Lines,SkyTeam,FRA,ATL,4615,10
+DL,Delta Air Lines,SkyTeam,FRA,JFK,3856,9
+DL,Delta Air Lines,SkyTeam,HND,LAX,5488,13
+DL,Delta Air Lines,SkyTeam,JFK,AMS,3643,9
+DL,Delta Air Lines,SkyTeam,JFK,ATL,760,2
+DL,Delta Air Lines,SkyTeam,JFK,CDG,3635,8
+DL,Delta Air Lines,SkyTeam,JFK,DFW,1391,4
+DL,Delta Air Lines,SkyTeam,JFK,FRA,3856,8
+DL,Delta Air Lines,SkyTeam,JFK,LAX,2475,6
+DL,Delta Air Lines,SkyTeam,JFK,LHR,3451,8
+DL,Delta Air Lines,SkyTeam,JFK,ORD,740,2
+DL,Delta Air Lines,SkyTeam,JFK,PDX,2454,5
+DL,Delta Air Lines,SkyTeam,JFK,PVG,7392,16
+DL,Delta Air Lines,SkyTeam,JFK,SFO,2586,7
+DL,Delta Air Lines,SkyTeam,LAX,ATL,1946,4
+DL,Delta Air Lines,SkyTeam,LAX,HND,5488,12
+DL,Delta Air Lines,SkyTeam,LAX,JFK,2475,5
+DL,Delta Air Lines,SkyTeam,LHR,ATL,4211,10
+DL,Delta Air Lines,SkyTeam,LHR,JFK,3451,7
+DL,Delta Air Lines,SkyTeam,ORD,ATL,606,3
+DL,Delta Air Lines,SkyTeam,ORD,CDG,4152,9
+DL,Delta Air Lines,SkyTeam,PDX,AMS,5004,12
+DL,Delta Air Lines,SkyTeam,PDX,ATL,2172,5
+DL,Delta Air Lines,SkyTeam,PDX,JFK,2454,5
+DL,Delta Air Lines,SkyTeam,PVG,JFK,7392,15
+DL,Delta Air Lines,SkyTeam,PVG,SFO,6150,13
+DL,Delta Air Lines,SkyTeam,SFO,ATL,2139,5
+DL,Delta Air Lines,SkyTeam,SFO,JFK,2586,7
+DL,Delta Air Lines,SkyTeam,SFO,PVG,6150,14
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,ATL,4401,10
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,DFW,4920,11
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,DXB,3215,7
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,JFK,3643,8
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,LAX,5578,12
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,LHR,231,2
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,ORD,4120,9
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,PVG,5549,13
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,SFO,5473,13
+KL,KLM Royal Dutch Airlines,SkyTeam,AMS,YVR,4804,10
+KL,KLM Royal Dutch Airlines,SkyTeam,ATL,AMS,4401,10
+KL,KLM Royal Dutch Airlines,SkyTeam,DFW,AMS,4920,10
+KL,KLM Royal Dutch Airlines,SkyTeam,DXB,AMS,3215,8
+KL,KLM Royal Dutch Airlines,SkyTeam,JFK,AMS,3643,9
+KL,KLM Royal Dutch Airlines,SkyTeam,LAX,AMS,5578,12
+KL,KLM Royal Dutch Airlines,SkyTeam,LHR,AMS,231,2
+KL,KLM Royal Dutch Airlines,SkyTeam,ORD,AMS,4120,10
+KL,KLM Royal Dutch Airlines,SkyTeam,PVG,AMS,5549,13
+KL,KLM Royal Dutch Airlines,SkyTeam,SFO,AMS,5473,12
+KL,KLM Royal Dutch Airlines,SkyTeam,YVR,AMS,4804,10
+LH,Lufthansa,Star Alliance,AMS,FRA,228,1
+LH,Lufthansa,Star Alliance,ATL,FRA,4615,11
+LH,Lufthansa,Star Alliance,CDG,FRA,280,1
+LH,Lufthansa,Star Alliance,DFW,FRA,5143,11
+LH,Lufthansa,Star Alliance,DXB,FRA,3012,7
+LH,Lufthansa,Star Alliance,FRA,AMS,228,1
+LH,Lufthansa,Star Alliance,FRA,ATL,4615,11
+LH,Lufthansa,Star Alliance,FRA,CDG,280,1
+LH,Lufthansa,Star Alliance,FRA,DFW,5143,11
+LH,Lufthansa,Star Alliance,FRA,DXB,3012,7
+LH,Lufthansa,Star Alliance,FRA,HND,5831,12
+LH,Lufthansa,Star Alliance,FRA,JFK,3856,8
+LH,Lufthansa,Star Alliance,FRA,LAX,5806,13
+LH,Lufthansa,Star Alliance,FRA,LHR,408,1
+LH,Lufthansa,Star Alliance,FRA,ORD,4344,9
+LH,Lufthansa,Star Alliance,FRA,PVG,5516,13
+LH,Lufthansa,Star Alliance,FRA,SFO,5699,12
+LH,Lufthansa,Star Alliance,FRA,YVR,5025,12
+LH,Lufthansa,Star Alliance,HND,FRA,5831,12
+LH,Lufthansa,Star Alliance,JFK,FRA,3856,8
+LH,Lufthansa,Star Alliance,LAX,FRA,5806,12
+LH,Lufthansa,Star Alliance,LHR,FRA,408,2
+LH,Lufthansa,Star Alliance,ORD,FRA,4344,10
+LH,Lufthansa,Star Alliance,PVG,FRA,5516,12
+LH,Lufthansa,Star Alliance,SFO,FRA,5699,13
+LH,Lufthansa,Star Alliance,YVR,FRA,5025,12
+UA,United Airlines,Star Alliance,AMS,ORD,4120,10
+UA,United Airlines,Star Alliance,ATL,SFO,2139,5
+UA,United Airlines,Star Alliance,CDG,ORD,4152,9
+UA,United Airlines,Star Alliance,CDG,SFO,5583,13
+UA,United Airlines,Star Alliance,DFW,ORD,802,2
+UA,United Airlines,Star Alliance,DFW,SFO,1464,3
+UA,United Airlines,Star Alliance,FRA,ORD,4344,9
+UA,United Airlines,Star Alliance,FRA,SFO,5699,12
+UA,United Airlines,Star Alliance,JFK,LAX,2475,5
+UA,United Airlines,Star Alliance,JFK,SFO,2586,7
+UA,United Airlines,Star Alliance,LAX,JFK,2475,5
+UA,United Airlines,Star Alliance,LAX,LHR,5456,11
+UA,United Airlines,Star Alliance,LAX,ORD,1745,5
+UA,United Airlines,Star Alliance,LAX,PVG,6485,15
+UA,United Airlines,Star Alliance,LAX,SFO,337,1
+UA,United Airlines,Star Alliance,LHR,LAX,5456,12
+UA,United Airlines,Star Alliance,LHR,ORD,3953,8
+UA,United Airlines,Star Alliance,LHR,SFO,5368,12
+UA,United Airlines,Star Alliance,ORD,AMS,4120,9
+UA,United Airlines,Star Alliance,ORD,CDG,4152,10
+UA,United Airlines,Star Alliance,ORD,DFW,802,2
+UA,United Airlines,Star Alliance,ORD,FRA,4344,9
+UA,United Airlines,Star Alliance,ORD,LAX,1745,5
+UA,United Airlines,Star Alliance,ORD,LHR,3953,9
+UA,United Airlines,Star Alliance,ORD,PDX,1739,5
+UA,United Airlines,Star Alliance,ORD,PVG,7057,16
+UA,United Airlines,Star Alliance,ORD,SFO,1846,4
+UA,United Airlines,Star Alliance,ORD,YVR,1764,5
+UA,United Airlines,Star Alliance,PDX,ORD,1739,5
+UA,United Airlines,Star Alliance,PDX,SFO,550,3
+UA,United Airlines,Star Alliance,PVG,LAX,6485,14
+UA,United Airlines,Star Alliance,PVG,ORD,7057,15
+UA,United Airlines,Star Alliance,PVG,SFO,6150,14
+UA,United Airlines,Star Alliance,SFO,ATL,2139,5
+UA,United Airlines,Star Alliance,SFO,CDG,5583,13
+UA,United Airlines,Star Alliance,SFO,DFW,1464,3
+UA,United Airlines,Star Alliance,SFO,FRA,5699,13
+UA,United Airlines,Star Alliance,SFO,JFK,2586,7
+UA,United Airlines,Star Alliance,SFO,LAX,337,1
+UA,United Airlines,Star Alliance,SFO,LHR,5368,11
+UA,United Airlines,Star Alliance,SFO,ORD,1846,4
+UA,United Airlines,Star Alliance,SFO,PDX,550,3
+UA,United Airlines,Star Alliance,SFO,PVG,6150,13
+UA,United Airlines,Star Alliance,SFO,YVR,800,3
+UA,United Airlines,Star Alliance,YVR,ORD,1764,4
+UA,United Airlines,Star Alliance,YVR,SFO,800,2
