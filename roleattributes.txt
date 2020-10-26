@@ -1,0 +1,73 @@
+xs-security.json
+----------------
+
+{
+    "xsappname": "myapphana",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.Viewer",
+            "description": "Viewer"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "Region",
+            "description": "Region",
+            "valueType": "string"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "Viewer",
+            "description": "Viewer",
+            "scope-references": [
+                "$XSAPPNAME.Viewer"
+            ],
+            "attribute-references": [
+                {
+                    "name": "Region"
+                }
+            ]
+        }
+    ]
+}
+
+
+app/xs-app.json
+---------------
+
+            "scope": "$XSAPPNAME.Viewer",
+
+
+srv/server.js
+-------------
+
+GET /srv/user
+    req.authInfo.userAttributes
+
+GET /srv/session
+    SELECT * FROM M_SESSION_CONTEXT
+
+GET /srv/sales
+    if (req.authInfo.checkScope('$XSAPPNAME.Viewer')) {
+        req.db.exec(`SELECT * FROM "myapphana.db::sales" WHERE "region" IN (SELECT * FROM JSON_TABLE((('{"values":' || SESSION_CONTEXT('XS_REGION')) || '}'), '$.values[*]' COLUMNS("VALUE" VARCHAR(5000) PATH '$')))`, function (err, results) {
+            if (err) {
+                res.type('text/plain').status(500).send('ERROR: ' + err.toString());
+                return;
+            }
+            res.status(200).json(results);
+        });
+    } else {
+        res.status(403).send('Forbidden');
+    }
+
+
+debug
+-----
+
+cf set-env myapphana-srv DEBUG xssec*
+cf set-env myapphana-srv SAP_EXT_TRC stdout
+cf set-env myapphana-srv SAP_EXT_TRL 3
+cf restage myapphana-srv
+cf logs myapphana-srv --recent
