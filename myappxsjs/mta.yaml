@@ -1,6 +1,6 @@
 ID: myappxsjs
 _schema-version: "3.1"
-version: 0.0.1
+version: 0.0.5
 
 modules:
    - name: myappxsjs-db
@@ -16,8 +16,9 @@ modules:
      type: nodejs
      path: srv
      parameters:
-        disk-quota: 512M
+        disk-quota: 1024M
         memory: 256M
+        buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git#v1.7.66
      provides:
         - name: srv_api
           properties:

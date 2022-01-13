@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="myappxsjs.db::CV_GET_APPLICATIONUSER" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_GET_USER_ROLE_TRIAL"/>
+<localVariables>
+  <variable id="APPLICATIONUSER" type="session"/>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="myappxsjs.db::students">
+    <resourceUri>myappxsjs.db::students</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="site"/>
+      <viewAttribute id="gender"/>
+      <viewAttribute id="age"/>
+      <viewAttribute id="score"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_APPLICATION_USER" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
+        <formula>'??APPLICATIONUSER??'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="myappxsjs.db::students"/></calculationView>
+</calculationViews>
+
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="Projection_1" columnName="id"/>
+    </attribute>
+    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="Projection_1" columnName="name"/>
+    </attribute>
+    <attribute id="site" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="site"/>
+      <keyMapping columnObjectName="Projection_1" columnName="site"/>
+    </attribute>
+    <attribute id="gender" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="gender"/>
+      <keyMapping columnObjectName="Projection_1" columnName="gender"/>
+    </attribute>
+    <attribute id="age" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="age"/>
+      <keyMapping columnObjectName="Projection_1" columnName="age"/>
+    </attribute>
+    <attribute id="score" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="score"/>
+      <keyMapping columnObjectName="Projection_1" columnName="score"/>
+    </attribute>
+    <attribute id="APPLICATION_USER" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CC_APPLICATION_USER"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="270"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,10 @@
+.hdi
+# auto generated wildcard
+db/.env
+db/node_modules
+web/node_modules
+xsjs/node_modules
+node_modules/
+mta_archives
+# auto generated wildcard
+prumo-hana-cloud-database/db/.env
