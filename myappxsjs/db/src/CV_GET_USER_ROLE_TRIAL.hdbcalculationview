@@ -21,13 +21,15 @@
       <viewAttribute id="score"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_NAME" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
+      <calculatedViewAttribute id="UPPER_NAME" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
         <formula>UPPER(&quot;name&quot;)</formula>
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="UCASE_NAME" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
+        <formula>UCASE(&quot;name&quot;)</formula>
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="myappxsjs.db::students"/>
-    <filter>UPPER('??APPLICATIONUSER??') = &quot;CC_NAME&quot;</filter>
-  </calculationView>
+    <input node="myappxsjs.db::students"/></calculationView>
 </calculationViews>
 
 <logicalModel id="Projection_1">
@@ -56,9 +58,13 @@
       <descriptions defaultDescription="score"/>
       <keyMapping columnObjectName="Projection_1" columnName="score"/>
     </attribute>
-    <attribute id="CC_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_NAME"/>
-      <keyMapping columnObjectName="Projection_1" columnName="CC_NAME"/>
+    <attribute id="UPPER_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPPER_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="UPPER_NAME"/>
+    </attribute>
+    <attribute id="UCASE_NAME" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UCASE_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="UCASE_NAME"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>

@@ -3,6 +3,7 @@
 <descriptions defaultDescription="CV_GET_USER_ROLE_TRIAL"/>
 <localVariables>
   <variable id="APPLICATIONUSER" type="session"/>
+  <variable id="XS_APPLICATIONUSER" type="session"/>
 </localVariables>
 <variableMappings/>
 <dataSources>
@@ -14,56 +15,48 @@
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
     <viewAttributes>
       <viewAttribute id="id"/>
+    
       <viewAttribute id="name"/>
-      <viewAttribute id="site"/>
-      <viewAttribute id="gender"/>
-      <viewAttribute id="age"/>
-      <viewAttribute id="score"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_APPLICATION_USER" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
         <formula>'??APPLICATIONUSER??'</formula>
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_XSAPPLICATIONUSER" datatype="NVARCHAR" length="500" expressionLanguage="SQL">
+    
+        <formula>'??XS_APPLICATIONUSER??'</formula>
+    
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="myappxsjs.db::students"/></calculationView>
+    <input node="myappxsjs.db::students"/>
+  </calculationView>
 </calculationViews>
 
-<logicalModel id="Projection_1">
+<logicalModel id="Projection_1" filterExpressionLanguage="SQL">
   <attributes>
     <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="id"/>
       <keyMapping columnObjectName="Projection_1" columnName="id"/>
     </attribute>
-    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_APPLICATION_USER" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_APPLICATION_USER"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CC_APPLICATION_USER"/>
+    </attribute>
+    <attribute id="CC_XSAPPLICATIONUSER" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_XSAPPLICATIONUSER"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CC_XSAPPLICATIONUSER"/>
+    </attribute>
+  
+    <attribute id="name" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="name"/>
       <keyMapping columnObjectName="Projection_1" columnName="name"/>
-    </attribute>
-    <attribute id="site" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="site"/>
-      <keyMapping columnObjectName="Projection_1" columnName="site"/>
-    </attribute>
-    <attribute id="gender" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="gender"/>
-      <keyMapping columnObjectName="Projection_1" columnName="gender"/>
-    </attribute>
-    <attribute id="age" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="age"/>
-      <keyMapping columnObjectName="Projection_1" columnName="age"/>
-    </attribute>
-    <attribute id="score" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="score"/>
-      <keyMapping columnObjectName="Projection_1" columnName="score"/>
-    </attribute>
-    <attribute id="APPLICATION_USER" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_NAME"/>
-      <keyMapping columnObjectName="Projection_1" columnName="CC_APPLICATION_USER"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
   <calculatedMeasures/>
-  <restrictedMeasures/>
-</logicalModel>
+  <restrictedMeasures/></logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">

@@ -1,25 +1,27 @@
-const xsjs = require('@sap/xsjs');
-const xsenv = require('@sap/xsenv');
+"use strict";
+var https = require("https");
 
-var options = {
-	anonymous: false,
-	xsApplicationUser: false,
-	auditLog: { logToConsole: true },
-	redirectUrl: '/srv/index.xsjs'
-};
+var xsenv = require("@sap/xsenv");
+var port = process.env.PORT || 5001;
+var server = require("http").createServer();
 
-try {
-	options = Object.assign(options, xsenv.getServices({ hana: { tag: "hana" } }));
-} catch (err) {
-	console.log("[WARN]", err.message);
-}
+https.globalAgent.options.ca = xsenv.loadCertificates();
 
-try {
-	options = Object.assign(options, xsenv.getServices({ uaa: { tag: "xsuaa" } }));
-} catch (err) {
-	console.log("[WARN]", err.message);
-}
+global.__base = __dirname + "/";
+var init = require(global.__base + "utils/initialize");
 
-const port = process.env.PORT || 5001;
-xsjs(options).listen(port);
-console.info('Listening on http://localhost:' + port);
+//Initialize Express App
+var app = init.initExpress();
+
+//Setup Routes
+//var router = require("./router")(app, server);
+
+//Initialize the XSJS Compatibility Layer
+init.initXSJS(app);
+
+//Start the Server
+server.on("request", app);
+
+server.listen(port, function () {
+    console.info("HTTP Server: " + server.address().port);
+});
