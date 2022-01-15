@@ -26,10 +26,14 @@
       </calculatedViewAttribute>
     
       <calculatedViewAttribute id="UCASE_NAME" datatype="NVARCHAR" length="100" expressionLanguage="SQL">
+    
         <formula>UCASE(&quot;name&quot;)</formula>
+    
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="myappxsjs.db::students"/></calculationView>
+    <input node="myappxsjs.db::students"/>
+    <filter>'??APPLICATIONUSER??' = &quot;name&quot; or '??APPLICATIONUSER??' = UPPER(&quot;name&quot;)</filter>
+  </calculationView>
 </calculationViews>
 
 <logicalModel id="Projection_1">
@@ -67,7 +71,13 @@
       <keyMapping columnObjectName="Projection_1" columnName="UCASE_NAME"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="APLICATIONUSER" order="9" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="100">
+        <formula>'??APPLICATIONUSER??'</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures/>
   <calculatedMeasures/>
   <restrictedMeasures/>

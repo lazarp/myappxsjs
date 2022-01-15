@@ -1,12 +1,12 @@
 {
   "dependencies": {
     "cfenv": "latest",
-    "passport": "0.4.0",
+    "passport": "0.5.2",
     "@sap/xssec": "latest",
-    "express": "4.17.1",
+    "express": "4.17.2",
     "@sap/xsenv": "3.1.1",
     "@sap/xsjs": "6.5.0",
-    "@sap/cds": "^2.10"
+    "@sap/cds": "^5.7.5"
   },
   "scripts": {
     "start": "node server.js"
