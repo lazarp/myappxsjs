@@ -1,0 +1,3 @@
+SEQUENCE "myappxsjs.db::SEQ_STUDENTS"
+RESET BY
+SELECT IFNULL(MAX("id"), 0) + 1 FROM "myappxsjs.db::students"
